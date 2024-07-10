@@ -13,6 +13,7 @@
 #define READ_TIMEOUT        100
 
 UART myUART(TX_PIN, RX_PIN);
+UART DEBUG_UART(DEBUG_TX, DEBUG_RX);
 
 /*
 #if defined(ESP32)
@@ -163,7 +164,7 @@ String DWIN::readDWIN(){
         }
     }
     if (_echo){
-        Serial.println("->> "+resp);
+        DEBUG_UART.println("->> "+resp);
     }
     return resp;
 }
@@ -223,7 +224,7 @@ String DWIN::handle(){
     }
 
     if (isFirstByte &&_echo){
-        Serial.println("Address : " + address + " | Data : " + String(lastByte, HEX) + " | Message : " + message + " | Response " +response );
+        DEBUG_UART.println("Address : " + address + " | Data : " + String(lastByte, HEX) + " | Message : " + message + " | Response " +response );
     }
     if (isFirstByte){
         listenerCallback(address, lastByte, message, response);
@@ -253,6 +254,6 @@ byte DWIN::readCMDLastByte(){
 
 
 void DWIN::flushSerial(){
-  Serial.flush();
+  DEBUG_UART.flush();
   _dwinSerial->flush();
 }

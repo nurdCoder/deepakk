@@ -20,9 +20,7 @@
 #define ADDRESS_B     "1020"
 #define DGUS_BAUD     115200
 
-#define DEBUG_TX    4
-#define DEBUG_RX    5
-UART DEBUG_UART(DEBUG_TX, DEBUG_RX);
+
 
 //creates pwm instance
 RP2040_PWM* PWM_Instance;

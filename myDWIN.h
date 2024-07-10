@@ -24,6 +24,9 @@
     #include <SoftwareSerial.h>
 #endif
 */
+#define DEBUG_TX    4
+#define DEBUG_RX    5
+extern UART DEBUG_UART;
 
 #define DWIN_DEFAULT_BAUD_RATE      115200
 #define RX_PIN                      1
