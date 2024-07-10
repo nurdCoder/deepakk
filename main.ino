@@ -54,6 +54,8 @@ void setup()
 
 void loop()
 {
+  delay(500);
+  DEBUG_UART.println("500 sec delay");
   // PWM_Instance->setPWM(pinToUse, frequency, dutyCycle);
   // Listen HMI Events
   hmi.listen();
